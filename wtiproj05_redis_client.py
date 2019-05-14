@@ -63,7 +63,7 @@ class RedisClient:
 
 
 if __name__ == "__main__":
-    r = RedisClient('localhost', 6381, 0)
+    r = RedisClient('localhost', 6379, 0)
     print("redis client ready")
 
     for i in range(3):

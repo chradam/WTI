@@ -10,13 +10,15 @@ def create_keyspace(session, keyspace):
 
 
 def create_table(session, keyspace, table):
-    session.execute("""
+    session.execute(
+        """
         CREATE TABLE IF NOT EXISTS """+ keyspace+"""."""+table+""" (
         user_id int ,
         avg_movie_rating float,
         PRIMARY KEY(user_id)
         )
-    """)
+        """
+    )
 
 
 def push_data_table(session, keyspace, table, userId, avgMovieRating):
@@ -26,9 +28,9 @@ def push_data_table(session, keyspace, table, userId, avgMovieRating):
         VALUES (%(user_id)s, %(avg_movie_rating)s)
         """,
         {
-        'user_id': userId,
-        'avg_movie_rating': avgMovieRating
-    }
+            'user_id': userId,
+            'avg_movie_rating': avgMovieRating
+        }
     )
 
 

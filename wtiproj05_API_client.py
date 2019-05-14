@@ -61,7 +61,7 @@ if __name__ == '__main__':
                   "genre-Musical": 0, "genre-Mystery": 1, "genre-Romance": 1, "genre-Sci-Fi": 0, "genre-Short": 0,
                   "genre-Thriller": 1, "genre-War": 0, "genre-Western": 0}
 
-    payload_2 = {"userID": 78, "movieID": 904, "rating": 3.0, "genre-Action": 0, "genre-Adventure": 1,
+    payload_2 = {"userID": 75, "movieID": 904, "rating": 3.0, "genre-Action": 0, "genre-Adventure": 1,
                   "genre-Animation": 0, "genre-Children": 0, "genre-Comedy": 1, "genre-Crime": 0, "genre-Documentary": 0,
                   "genre-Drama": 1, "genre-Fantasy": 0, "genre-Film-Noir": 0, "genre-Horror": 0, "genre-IMAX": 0,
                   "genre-Musical": 0, "genre-Mystery": 1, "genre-Romance": 0, "genre-Sci-Fi": 0, "genre-Short": 0,
@@ -69,14 +69,22 @@ if __name__ == '__main__':
 
     # Test order
     # get_ratings > delete > posts > get_ratings > avg_all > avg_user > user_profile
-
+    ac.test_ratings_delete()
     ac.test_ratings_get()
-
-    for i in range(20):
-        ac.test_rating_post(payload_1)
-        sleep(0.1)
-        ac.test_rating_post(payload_2)
-
+    ac.test_rating_post(payload_1)
+    ac.test_avg_all_users()
+    ac.test_avg_by_user(78)
+    ac.test_user_profile(78)
+    ac.test_rating_post(payload_2)
     ac.test_avg_all_users()
     ac.test_avg_by_user(75)
-    ac.test_user_profile(75)
+    ac.test_user_profile(78)
+
+    # for i in range(20):
+    #     ac.test_rating_post(payload_1)
+    #     sleep(0.1)
+    #     ac.test_rating_post(payload_2)
+    #
+    # ac.test_avg_all_users()
+    # ac.test_avg_by_user(75)
+    # ac.test_user_profile(75)

@@ -1,9 +1,10 @@
 import json
 from flask import Flask, request
-from wtiproj05_api_logic import ApiLogic
+# from wtiproj05_api_logic import ApiLogic
+from wtiproj06_api_logic import ApiLogic
 
 app = Flask(__name__)
-api_logic = ApiLogic(port=6379, file_records=10)
+api_logic = ApiLogic(file_records=10)
 
 
 @app.route("/rating", methods=['POST'])
