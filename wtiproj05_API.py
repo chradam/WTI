@@ -44,7 +44,7 @@ def get_user_profile(user_id):
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=9875, debug=True)
+    app.run(host='0.0.0.0', port=9875, debug=True)
 
     # example_rating = {"userID": 78, "movieID": 903, "rating": 5.0, "genre-Action": 0, "genre-Adventure": 0, "genre-Animation": 0,
     #                     "genre-Children": 0, "genre-Comedy": 0, "genre-Crime": 0, "genre-Documentary": 0, "genre-Drama": 1,

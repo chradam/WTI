@@ -86,26 +86,36 @@ class CassandraClient:
 
 
 if __name__ == "__main__":
-    cc = CassandraClient('127.0.0.1', 9042, 'ratings', 'test')
-    print("cassandra client ready")
-    dict_list = [{'a': 1, 'b': 2},
-                 {'c': 3, 'd': 4},
-                 {'e': 5, 'f': 6},
-                 {'g': 7, 'h': 8}]
+    host = '192.168.137.96'
+    # cc = CassandraClient(host, 9042, 'ratings', 'test')
+    # print("cassandra client ready")
+    # dict_list = [{'a': 1, 'b': 2},
+    #              {'c': 3, 'd': 4},
+    #              {'e': 5, 'f': 6},
+    #              {'g': 7, 'h': 8}]
+    #
+    # # for x, d in enumerate(dict_list):
+    # #     s = json.dumps(d)
+    # #     # print(s)
+    # #     # print(json.loads(s))
+    # #     cc.push_data_table('test', x + 1, s)
+    #
+    # print(cc.pull_data_table('ratings')[0])
+    # if not cc.pull_data_table('ratings')[0]:
+    #     print('empty')
+    # else:
+    #     a, b = cc.pull_data_table('ratings')
+    #     print(a)
+    #     print(b)
+    #     cc.print_data_table()
+    #
+    # cc.delete_table()
+    cassandra_client = CassandraClient(host, 9043, 'ratings', 'ratings_all')
+    cassandra_client.delete_table()
+    cassandra_avg_all = CassandraClient(host, 9043, 'avg', 'avg_genre_ratings')
+    cassandra_avg_all.delete_table()
+    cassandra_avg_user = CassandraClient(host, 9043, 'avg', 'avg_genre_ratings_for_user')
+    cassandra_avg_user.delete_table()
 
-    # for x, d in enumerate(dict_list):
-    #     s = json.dumps(d)
-    #     # print(s)
-    #     # print(json.loads(s))
-    #     cc.push_data_table('test', x + 1, s)
-
-    print(cc.pull_data_table('ratings')[0])
-    if not cc.pull_data_table('ratings')[0]:
-        print('empty')
-    else:
-        a, b = cc.pull_data_table('ratings')
-        print(a)
-        print(b)
-        cc.print_data_table()
-
-    cc.delete_table()
+    cassandra_profiles_client = CassandraClient(host, 9043, 'avg', 'user_profile')
+    cassandra_profiles_client.delete_table()

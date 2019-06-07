@@ -16,7 +16,7 @@ GET /avg-genre-ratings/all-users, /avg-genre-ratings/user<userID>
 
 
 class ApiLogic:
-    def __init__(self, host='127.0.0.1', port=9042, file_records=None):
+    def __init__(self, host='192.168.137.1', port=9043, file_records=None):
         self.cassandra_client = CassandraClient(host, port, 'ratings', 'ratings_all')
         print(Fore.YELLOW + 'Cassandra loading...')
 
